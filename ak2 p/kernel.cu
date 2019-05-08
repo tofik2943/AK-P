@@ -10,12 +10,12 @@ cudaError_t addWithCuda(float *c, const float *tab, float alpha, int arraySize);
 
 __global__ void addKernel(float *c, const float *tab, float alpha) {
 	int i = threadIdx.x; //zaczyna sie od zera
-	float x = tab[i * 2];
-	float y = tab[i * 2 + 1];
+	float x = tab[i * 3];
+	float y = tab[i * 3 + 1];
 	x = x * cos(alpha) - y * sin(alpha);
 	y = x * sin(alpha) + y * cos(alpha);
-	c[i * 2] = x;
-	c[i * 2 + 1] = y;
+	c[i * 3] = x;
+	c[i * 3 + 1] = y;
 }
 
 
